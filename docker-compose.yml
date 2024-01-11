@@ -1,0 +1,25 @@
+version: '3.6'
+
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: '${HOSTNAME}'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        gitlab_rails['gitlab_shell_ssh_port'] = ${SSH_PORT}
+        gitlab_rails['initial_root_password'] = '${INITIAL_ROOT_PASSWORD}'
+    ports:
+      - '80:80'
+      - '443:443'
+      - '${SSH_PORT}:${SSH_PORT}'
+    volumes:
+      - 'gitlab_config:/etc/gitlab'
+      - 'gitlab_logs:/var/log/gitlab'
+      - 'gitlab_data:/var/opt/gitlab'
+    shm_size: '256m'
+
+volumes:
+  gitlab_config:
+  gitlab_logs:
+  gitlab_data:
