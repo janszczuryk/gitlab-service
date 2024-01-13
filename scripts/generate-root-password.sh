@@ -20,7 +20,7 @@ function set_env_variable()
 function main()
 {
     local password=$(get_random_password)
-    set_env_variable "INITIAL_ROOT_PASSWORD" "$password" ".env"
+    set_env_variable "ROOT_PASSWORD" "$password" ".env"
     echo "Generated root password is: $password"
 }
 
