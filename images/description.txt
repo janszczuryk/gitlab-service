@@ -1,0 +1,6 @@
+1. Installation process
+2. Running as docker services
+3. Ability to log via web interface
+4. Notifications via email (SMTP)
+5. Registering gitlab runner
+6. Running a pipeline
