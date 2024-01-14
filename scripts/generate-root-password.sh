@@ -3,7 +3,7 @@
 function get_random_password()
 {
     local password=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c8)
-    echo $password
+    echo "$password"
 }
 
 # $1 - key
